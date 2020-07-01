@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url(../images/bg.png);
+  background-size: contain;
+  overflow: hidden;
+}
+
+.playable-area {
+  width: 100vw;
+  height: 100vh;
+}
+
+.player {
+  transition: ease 1s;
+  position: absolute;
+  bottom: 500px;
+  left: 200px;
+}
+
+.birb {
+  width: 200px;
+  height: 200px;
+}
+
+.jump-state {
+  transform: translateY(-200px);
+}
+
+.fall {
+  transform: translateY(100px);
+}
+/*# sourceMappingURL=styles.css.map */
