@@ -13,7 +13,7 @@ falling = setInterval(() => {
     //if true = the body has collided and we need to shop falling
     stopFalling();
   }
-  player.style.transform = `translateY(${pixels}px)`;
+  player.style.transform = `translateY(${pixels}px) rotate(5deg)`;
   pixels += 20;
 }, 50); // The number indicates the no. of times the player will be pushed below
 
@@ -24,10 +24,10 @@ function stopFalling() {
 
 function push() {
   if (screen.height > 768) {
-    player.style.transform = `translateY(${pixels - 750}px)`;
+    player.style.transform = `translateY(${pixels - 750}px) rotate(-180deg)`;
     pixels -= 750;
   } else {
-    player.style.transform = `translateY(${pixels - 600}px)`;
+    player.style.transform = `translateY(${pixels - 600}px) rotate(-180deg)`;
     pixels -= 600;
   }
 }
