@@ -3,8 +3,21 @@
 }
 body {
   background: url(../images/bg.png);
+
   background-size: contain;
+  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: 1024px) {
+    background-size: cover;
+  }
+
+  @media (max-width: 768px) {
+    background-size: cover;
+  }
 }
 .playable-area {
   width: 100vw;
@@ -15,16 +28,56 @@ body {
   transition: ease 1s;
   position: absolute;
   bottom: 500px;
-  left: 200px;
+  left: 500px;
+  @media (max-width: 1024px) {
+    bottom: 400px;
+    left: 150px;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 400px;
+    left: 100px;
+  }
 }
 .birb {
   width: 200px;
   height: 200px;
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 }
 
-.jump-state {
-  transform: translateY(-200px);
+.gameover {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  color: white;
+  z-index: -1;
+
+  button {
+    font-size: 1.5rem;
+    border: none;
+    background: cyan;
+    color: white;
+    width: 100px;
+    height: 50px;
+    margin: 1rem;
+    transition: ease 0.25s;
+
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.1);
+    }
+  }
 }
-.fall {
-  transform: translateY(100px);
+.make-visible {
+  visibility: visible;
+  opacity: 100%;
+  z-index: 100;
 }
