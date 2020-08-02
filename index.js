@@ -4,7 +4,10 @@ const player = document.querySelector(".player");
 const playableArea = document.querySelector(".playable-area");
 let gap = document.querySelector(".gap");
 let block = document.querySelector(".block");
-
+let score = document.querySelector(".score");
+const gameOverScreen = document.querySelector(".gameover");
+let finalScore = document.querySelector(".finalScore");
+let scores = 0;
 let pixels = 20;
 
 console.log(screen.height);
@@ -12,20 +15,31 @@ console.log(screen.height);
 //gravity
 var falling;
 falling = setInterval(() => {
-  if (checkBorderCollision(showCoordinate())) {
+  if (
+    checkBorderCollision(showCoordinate()) ||
+    blockCollision(showCoordinate())
+  ) {
     //if true = the body has collided and we need to end game
     gameOver();
   }
-  player.style.transform = `translateY(${pixels}px) rotate(5deg)`;
+  // player.style.transform = `translateY(${pixels}px) rotate(5deg)`;
+  player.style.transform = `translateY(${pixels}px)`;
   pixels += 20;
 }, 50); // The number indicates the no. of times the player will be pushed below
 
+const scoring = setInterval(() => {
+  scores += 1;
+  score.innerHTML = scores + " points";
+}, 3000);
+
 function push() {
   if (screen.height > 768) {
-    player.style.transform = `translateY(${pixels - 750}px) rotate(-180deg)`;
+    // player.style.transform = `translateY(${pixels - 750}px) rotate(-180deg)`;
+    player.style.transform = `translateY(${pixels - 750}px)`;
     pixels -= 750;
   } else {
-    player.style.transform = `translateY(${pixels - 600}px) rotate(-180deg)`;
+    // player.style.transform = `translateY(${pixels - 600}px) rotate(-180deg)`;
+    player.style.transform = `translateY(${pixels - 600}px)`;
     pixels -= 600;
   }
 }
@@ -36,7 +50,7 @@ function showCoordinate() {
   var position = player.getBoundingClientRect();
   let y = position.top;
   let x = position.left;
-  console.log(x + ", " + y);
+  // console.log(x + ", " + y);
   return [x, y];
 }
 
@@ -78,6 +92,7 @@ function gameOver() {
   playableArea.removeChild(block);
   playableArea.removeChild(gap);
   playableArea.removeChild(player);
+  playableArea.removeChild(score);
 
   //Stop Pushing
   clearInterval(falling);
@@ -85,5 +100,45 @@ function gameOver() {
   // console.log("stopped falling");
 
   //Show Gameover screen
-  document.querySelector(".gameover").classList.add("make-visible");
+  finalScore.innerHTML = scores + " points";
+  gameOverScreen.classList.add("make-visible");
+}
+
+//Block Collision Detection
+function blockCollision([x, y]) {
+  var gapPosition = gap.getBoundingClientRect();
+  let gapTop = gapPosition.top;
+  let gapBottom = gapPosition.bottom;
+  let gapLeft = gapPosition.left;
+  let gapRight = gapPosition.right;
+  let xoffset = 110;
+  let ytoffset = 50;
+  let yboffset = 100;
+  if (screen.height <= 768) {
+    xoffset = 70;
+    ytoffset = 20;
+    yboffset = 70;
+  }
+  if (x + xoffset >= gapLeft && x <= gapRight) {
+    console.log("andar");
+    if (y + ytoffset <= gapTop || y + yboffset >= gapBottom) {
+      console.log("call");
+      return true;
+    } else {
+      // console.log(
+      //   " left= " +
+      //     gapLeft +
+      //     " right=" +
+      //     gapRight +
+      //     " top= " +
+      //     gapTop +
+      //     " bottom= " +
+      //     gapBottom
+      // );
+      // console.log("x= " + x + " " + "y =" + y);
+      console.log("nocoll");
+      return false;
+    }
+  }
+  // console.log("bahar");
 }
