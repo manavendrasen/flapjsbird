@@ -2,6 +2,9 @@
 
 const player = document.querySelector(".player");
 const playableArea = document.querySelector(".playable-area");
+let gap = document.querySelector(".gap");
+let block = document.querySelector(".block");
+
 let pixels = 20;
 
 console.log(screen.height);
@@ -18,7 +21,10 @@ falling = setInterval(() => {
 }, 50); // The number indicates the no. of times the player will be pushed below
 
 function stopFalling() {
+  playableArea.removeChild(block);
+  playableArea.removeChild(gap);
   clearInterval(falling);
+  console.log("stopped falling");
   document.querySelector(".gameover").classList.add("make-visible"); //shows the game over screen
 }
 
@@ -38,6 +44,7 @@ function showCoordinate() {
   var position = player.getBoundingClientRect();
   let y = position.top;
   let x = position.left;
+  console.log(x + ", " + y);
   return [x, y];
 }
 
@@ -53,6 +60,7 @@ function checkBorderCollision([x, y]) {
     //the body is below ground level or above screen
     // console.log(screen.height + " " + y);
     playableArea.removeChild(player);
+
     return true; // Yes the body is below ground level We need to stop
   } else {
     // console.log(screen.height + " " + y);
@@ -69,11 +77,9 @@ function reset() {
 }
 
 //gap
-const gap = document.querySelector(".gap");
-const block = document.querySelector(".block");
 
 gap.addEventListener("animationiteration", () => {
-  let random = -(Math.random() * 400 + 300);
-  gap.style.top = random + "px";
+  let random = Math.random() * 50 + 10;
+  gap.style.top = random + "%";
   // console.log(random);
 });

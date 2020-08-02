@@ -29,6 +29,7 @@ body {
   position: absolute;
   bottom: 500px;
   left: 500px;
+  z-index: 1000;
   @media (max-width: 1024px) {
     bottom: 400px;
     left: 150px;
@@ -87,7 +88,7 @@ body {
   height: 100%;
   width: 100px;
   background-color: green;
-  position: relative;
+  position: absolute;
   left: 100%;
   animation: block 3s infinite ease-in;
 }
@@ -103,8 +104,9 @@ body {
   height: 200px;
   width: 100px;
   background-color: white;
-  position: relative;
+  position: absolute;
   left: 100%;
-  top: -500px;
+  top: 40%;
+  z-index: 10;
   animation: block 3s infinite ease-in;
 }
