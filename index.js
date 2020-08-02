@@ -25,7 +25,7 @@ falling = setInterval(() => {
   // player.style.transform = `translateY(${pixels}px) rotate(5deg)`;
   player.style.transform = `translateY(${pixels}px)`;
   pixels += 20;
-}, 50); // The number indicates the no. of times the player will be pushed below
+}, 60); // The number indicates the no. of times the player will be pushed below
 
 const scoring = setInterval(() => {
   scores += 1;
@@ -114,9 +114,9 @@ function blockCollision([x, y]) {
   let xoffset = 110;
   let ytoffset = 50;
   let yboffset = 100;
-  if (screen.height <= 768) {
-    xoffset = 70;
-    ytoffset = 20;
+  if (screen.height <= 900) {
+    xoffset = 50;
+    ytoffset = 30;
     yboffset = 70;
   }
   if (x + xoffset >= gapLeft && x <= gapRight) {
@@ -125,17 +125,6 @@ function blockCollision([x, y]) {
       console.log("call");
       return true;
     } else {
-      // console.log(
-      //   " left= " +
-      //     gapLeft +
-      //     " right=" +
-      //     gapRight +
-      //     " top= " +
-      //     gapTop +
-      //     " bottom= " +
-      //     gapBottom
-      // );
-      // console.log("x= " + x + " " + "y =" + y);
       console.log("nocoll");
       return false;
     }
