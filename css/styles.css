@@ -96,4 +96,32 @@ body {
   opacity: 100%;
   z-index: 100;
 }
+
+.block {
+  height: 100%;
+  width: 100px;
+  background-color: green;
+  position: relative;
+  left: 100%;
+  animation: block 3s infinite ease-in;
+}
+
+@keyframes block {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -150px;
+  }
+}
+
+.gap {
+  height: 200px;
+  width: 100px;
+  background-color: white;
+  position: relative;
+  left: 100%;
+  top: -500px;
+  animation: block 3s infinite ease-in;
+}
 /*# sourceMappingURL=styles.css.map */

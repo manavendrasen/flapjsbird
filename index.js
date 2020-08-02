@@ -51,11 +51,11 @@ function checkBorderCollision([x, y]) {
 
   if (y >= groundCoordinate || y <= skyCorrdinate) {
     //the body is below ground level or above screen
-    console.log(screen.height + " " + y);
+    // console.log(screen.height + " " + y);
     playableArea.removeChild(player);
     return true; // Yes the body is below ground level We need to stop
   } else {
-    console.log(screen.height + " " + y);
+    // console.log(screen.height + " " + y);
     return false; //The body is on screen we are fine
   }
 }
@@ -67,3 +67,13 @@ function reset() {
   // document.querySelector(".gameover").classList.remove("make-visible");
   location.reload();
 }
+
+//gap
+const gap = document.querySelector(".gap");
+const block = document.querySelector(".block");
+
+gap.addEventListener("animationiteration", () => {
+  let random = -(Math.random() * 400 + 300);
+  gap.style.top = random + "px";
+  // console.log(random);
+});
