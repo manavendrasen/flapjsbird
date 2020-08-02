@@ -24,7 +24,7 @@ falling = setInterval(() => {
 
 const scoring = setInterval(() => {
   scores += 1;
-  score.innerHTML = scores + " points";
+  score.innerHTML = scores + " Points";
 }, 1000);
 
 function push() {
@@ -85,7 +85,7 @@ function gameOver() {
   clearInterval(falling);
 
   //Show Gameover screen
-  finalScore.innerHTML = scores + " points";
+  finalScore.innerHTML = scores + " Points";
   gameOverScreen.classList.add("make-visible");
 }
 
