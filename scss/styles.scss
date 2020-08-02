@@ -15,7 +15,7 @@ body {
     background-size: cover;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     background-size: cover;
   }
 }
@@ -56,7 +56,7 @@ body {
   transform-origin: center right;
   width: 150px;
   height: 150px;
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     width: 100px;
     height: 100px;
   }
@@ -104,9 +104,21 @@ body {
 
 // blocks
 .block {
+  border: 3px #5b6c6a solid;
+  border-top: 0;
+  border-bottom: 0;
   height: 100%;
   width: 100px;
-  background-color: green;
+  background: rgb(186, 248, 124);
+  background: linear-gradient(
+    90deg,
+    rgba(186, 248, 124, 1) 0%,
+    rgba(230, 253, 136, 1) 17%,
+    rgba(158, 227, 85, 1) 33%,
+    rgba(136, 195, 108, 1) 47%,
+    rgba(90, 153, 42, 1) 86%,
+    rgba(70, 138, 0, 1) 100%
+  );
   position: absolute;
   left: 100%;
   animation: block 3s infinite ease-in;
@@ -120,9 +132,12 @@ body {
   }
 }
 .gap {
+  border: 3px #5b6c6a solid;
+  border-left: 0;
+  border-right: 0;
   height: 200px;
   width: 100px;
-  background-color: white;
+  background-color: rgb(113, 198, 208);
   position: absolute;
   left: 100%;
   top: 40%;

@@ -20,7 +20,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   body {
     background-size: cover;
   }
@@ -64,7 +64,7 @@ body {
   height: 150px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .player {
     width: 100px;
     height: 100px;
@@ -114,9 +114,13 @@ body {
 }
 
 .block {
+  border: 3px #5b6c6a solid;
+  border-top: 0;
+  border-bottom: 0;
   height: 100%;
   width: 100px;
-  background-color: green;
+  background: #baf87c;
+  background: linear-gradient(90deg, #baf87c 0%, #e6fd88 17%, #9ee355 33%, #88c36c 47%, #5a992a 86%, #468a00 100%);
   position: absolute;
   left: 100%;
   animation: block 3s infinite ease-in;
@@ -132,9 +136,12 @@ body {
 }
 
 .gap {
+  border: 3px #5b6c6a solid;
+  border-left: 0;
+  border-right: 0;
   height: 200px;
   width: 100px;
-  background-color: white;
+  background-color: #71c6d0;
   position: absolute;
   left: 100%;
   top: 40%;
