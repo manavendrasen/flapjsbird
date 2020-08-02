@@ -8,6 +8,21 @@ let finalScore = document.querySelector(".finalScore");
 let scores = 0;
 let pixels = 20;
 
+//sw
+window.addEventListener("load", () => {
+  registerSW();
+});
+
+async function registerSW() {
+  if ("serviceWorker" in navigator) {
+    try {
+      await navigator.serviceWorker.register("./sw.js");
+    } catch (e) {
+      console.log(`SW registration failed`);
+    }
+  }
+}
+
 //gravity
 var falling;
 falling = setInterval(() => {

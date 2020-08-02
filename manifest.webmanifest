@@ -1,0 +1,30 @@
+{
+  "name": "FlapJS Bird",
+  "short_name": "FlapJS ",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "JavaScript based flappy bird",
+  "icons": [
+    {
+      "src": "images/icons/icon48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
