@@ -13,20 +13,12 @@ console.log(screen.height);
 var falling;
 falling = setInterval(() => {
   if (checkBorderCollision(showCoordinate())) {
-    //if true = the body has collided and we need to shop falling
-    stopFalling();
+    //if true = the body has collided and we need to end game
+    gameOver();
   }
   player.style.transform = `translateY(${pixels}px) rotate(5deg)`;
   pixels += 20;
 }, 50); // The number indicates the no. of times the player will be pushed below
-
-function stopFalling() {
-  playableArea.removeChild(block);
-  playableArea.removeChild(gap);
-  clearInterval(falling);
-  console.log("stopped falling");
-  document.querySelector(".gameover").classList.add("make-visible"); //shows the game over screen
-}
 
 function push() {
   if (screen.height > 768) {
@@ -59,7 +51,6 @@ function checkBorderCollision([x, y]) {
   if (y >= groundCoordinate || y <= skyCorrdinate) {
     //the body is below ground level or above screen
     // console.log(screen.height + " " + y);
-    playableArea.removeChild(player);
 
     return true; // Yes the body is below ground level We need to stop
   } else {
@@ -70,9 +61,6 @@ function checkBorderCollision([x, y]) {
 //reset game
 document.querySelector(".reset-button").addEventListener("click", reset);
 function reset() {
-  // player.style.bottom = "500px";
-  // playableArea.appendChild(player);
-  // document.querySelector(".gameover").classList.remove("make-visible");
   location.reload();
 }
 
@@ -83,3 +71,19 @@ gap.addEventListener("animationiteration", () => {
   gap.style.top = random + "%";
   // console.log(random);
 });
+
+//gameover
+function gameOver() {
+  //Removed elements
+  playableArea.removeChild(block);
+  playableArea.removeChild(gap);
+  playableArea.removeChild(player);
+
+  //Stop Pushing
+  clearInterval(falling);
+
+  // console.log("stopped falling");
+
+  //Show Gameover screen
+  document.querySelector(".gameover").classList.add("make-visible");
+}
