@@ -5,12 +5,13 @@
 body {
   background: url(../images/bg.png);
   font-family: "Poppins", sans-serif;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-repeat: repeat-x;
   overflow: hidden;
   margin: 0;
   padding: 0;
+  animation: background 30s linear 0s infinite;
 }
 
 @media (max-width: 1024px) {
@@ -22,6 +23,18 @@ body {
 @media (max-width: 768px) {
   body {
     background-size: cover;
+  }
+}
+
+@keyframes background {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -450px 0;
+  }
+  100% {
+    background-position: -950px 0;
   }
 }
 
