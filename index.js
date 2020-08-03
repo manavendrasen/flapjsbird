@@ -8,7 +8,7 @@ let finalScore = document.querySelector(".finalScore");
 let scores = 0;
 let pixels = 20;
 
-//sw
+//sw;
 window.addEventListener("load", () => {
   registerSW();
 });
@@ -22,6 +22,9 @@ async function registerSW() {
     }
   }
 }
+
+// Debugging
+// console.log(screen.height);
 
 //gravity
 var falling;
@@ -111,12 +114,12 @@ function blockCollision([x, y]) {
   let gapBottom = gapPosition.bottom;
   let gapLeft = gapPosition.left;
   let gapRight = gapPosition.right;
-  let xoffset = 110;
+  let xoffset = 120;
   let ytoffset = 50;
   let yboffset = 100;
 
-  if (screen.height <= 900) {
-    xoffset = 50;
+  if (screen.height < 900) {
+    xoffset = 80;
     ytoffset = 30;
     yboffset = 70;
   }
